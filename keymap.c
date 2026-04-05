@@ -5,11 +5,12 @@
 #include QMK_KEYBOARD_H
 #include <stdio.h>
 #include "keymap_swiss_de.h"
+#include "./keymap_swiss_de_mac_alt.h"
 
 
 // KEY OVERRIDES
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
-const key_override_t backslash_key_override = ko_make_basic(MOD_MASK_SHIFT, CH_SLSH, CH_BSLS);
+const key_override_t backslash_key_override = ko_make_basic(MOD_MASK_SHIFT, MC_SLSH, MC_BSLS);
 
 // this globally defines which key overrides are to be used
 const key_override_t *key_overrides[] = {
@@ -18,16 +19,16 @@ const key_override_t *key_overrides[] = {
 };
 
 // TAIKO COMBOS
-const uint16_t PROGMEM escape_combo[] = {KC_TAB, CH_1, COMBO_END};
+const uint16_t PROGMEM escape_combo[] = {KC_TAB, MC_1, COMBO_END};
 const uint16_t PROGMEM ae_combo[] = {KC_E, KC_A, COMBO_END};
 const uint16_t PROGMEM oe_combo[] = {KC_E, KC_O, COMBO_END};
 const uint16_t PROGMEM ue_combo[] = {KC_E, KC_U, COMBO_END};
 
 combo_t key_combos[] = {
 	COMBO(escape_combo, KC_ESC),
-	COMBO(ae_combo, CH_ADIA),
-	COMBO(oe_combo, CH_ODIA),
-	COMBO(ue_combo, CH_UDIA)
+	COMBO(ae_combo, MC_ADIA),
+	COMBO(oe_combo, MC_ODIA),
+	COMBO(ue_combo, MC_UDIA)
 };
 
 // Snap Tap
@@ -43,16 +44,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT( // NORMAL
     // .----------------------------------------------------.       .-----------------------------------------------------.
     // | ESC   | 1      | 2      | 3      | 4      | 5      |       | 6      | 7      | 8      | 9      | 0      | <-     |
-         KC_ESC,    CH_1,    CH_2,    CH_3,    CH_4,    CH_5,            CH_6,    CH_7,    CH_8,    CH_9,    CH_0, KC_BSPC,
+         KC_ESC,    MC_1,    MC_2,    MC_3,    MC_4,    MC_5,            MC_6,    MC_7,    MC_8,    MC_9,    MC_0, KC_BSPC,
     // |-------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
     // | TAB   | Q      | W      | E      | R      | T      |       | Z      | U      | I      | O      | P      | ->     |
-         KC_TAB,    CH_Q,    CH_W,    CH_E,    CH_R,    CH_T,            CH_Z,    CH_U,    CH_I,    CH_O,    CH_P,  KC_DEL,
+         KC_TAB,    MC_Q,    MC_W,    MC_E,    MC_R,    MC_T,            MC_Z,    MC_U,    MC_I,    MC_O,    MC_P,  KC_DEL,
     // |-------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
     // | LSFT  | A      | S      | D      | F      | G      |       | H      | J      | K      | L      | /      | RSFT   |
-        KC_LSFT,    CH_A,    CH_S,    CH_D,    CH_F,    CH_G,            CH_H,    CH_J,    CH_K,    CH_L, CH_SLSH, KC_RSFT,
+        KC_LSFT,    MC_A,    MC_S,    MC_D,    MC_F,    MC_G,            MC_H,    MC_J,    MC_K,    MC_L, MC_SLSH, KC_RSFT,
     // |-------+--------+--------+--------+--------+--------+       +--------+--------+--------+--------+--------+--------|
     // | LCTL  | Y      | X      | C      | V      | B      '-_____-' N      | M      | ,      | .      | -      | ENTER  |
-        KC_LCTL,    CH_Y,    CH_X,    CH_C,    CH_V,    CH_B,            CH_N,    CH_M, CH_COMM,  CH_DOT, CH_MINS,  KC_ENT,
+        KC_LCTL,    MC_Y,    MC_X,    MC_C,    MC_V,    MC_B,            MC_N,    MC_M, MC_COMM,  MC_DOT, MC_MINS,  KC_ENT,
     // '-------+----+---+----+---+----+---+----+---+------------+------------+----+---+----+---+----+---+----+---+--------'
                   //| MOD    | LALT   | LAYER1 | SPACE          | ENTER           | LAYER2 | RALT   | N/A    |
                       KC_LGUI, KC_LALT,   MO(1),          KC_SPC,           KC_ENT,   MO(2), KC_RALT, XXXXXXX
@@ -61,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [1] = LAYOUT( // FKEYS, ARROWS, MODS
     // .----------------------------------------------------.       .-----------------------------------------------------.
     // |       | F1     | F2     | F3     | F4     | F5     |       | F6     | F7     | F8     | F9     | F10    | <-     |
-        CH_SECT,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,           KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, _______,
+        MC_SECT,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,           KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, _______,
     // |-------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
     // | TAB   | F11    | F12    | F13    | F14    | F15    |       | F16    | F17    | F18    | F19    | F20    | ->     |
         _______,  KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,          KC_F16,  KC_F17,  KC_F18,  KC_F19,  KC_F20, _______,
@@ -79,13 +80,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [2] = LAYOUT( // SPECIAL
     // .----------------------------------------------------.       .-----------------------------------------------------.
     // | ESC   | 1      | 2      | 3      | 4      | 5      |       | 6      | 7      | 8      | 9      | 0      | <-     |
-         KC_ESC,    CH_1,    CH_2,    CH_3,    CH_4,    CH_5,            CH_6,    CH_7,    CH_8,    CH_9,    CH_0, KC_BSPC,
+         KC_ESC,    MC_1,    MC_2,    MC_3,    MC_4,    MC_5,            MC_6,    MC_7,    MC_8,    MC_9,    MC_0, KC_BSPC,
     // |-------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
     // | ~     | ^      | @      | #      | °      | $      |       | `      | |      | '      | ?      | !      | ->     |
-        CH_TILD, CH_CIRC,   CH_AT, CH_HASH,  CH_DEG,  CH_DLR,          CH_GRV, CH_PIPE, CH_QUOT, CH_QUES, CH_EXLM, _______,
+        MC_TILD, MC_CIRC,   MC_AT, MC_HASH,  MC_DEG,  MC_DLR,          MC_GRV, MC_PIPE, MC_QUOT, MC_QUES, MC_EXLM, _______,
     // |-------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
     // | LSFT  | <      | [      | {      | (      | \      |       | /      | )      | }      | ]      | >      | RSFT   |
-        _______, CH_LABK, CH_LBRC, CH_LCBR, CH_LPRN, CH_BSLS,         CH_SLSH, CH_RPRN, CH_RCBR, CH_RBRC, CH_RABK, _______,
+        _______, MC_LABK, MC_LBRC, MC_LCBR, MC_LPRN, MC_BSLS,         MC_SLSH, MC_RPRN, MC_RCBR, MC_RBRC, MC_RABK, _______,
     // |-------+--------+--------+--------+--------+--------+       +--------+--------+--------+--------+--------+--------|
     // | LCTL  |        |        | MUTE   | VOL DN | VOL UP '-_____-' PRV    | PLY    | NXT    |        |        | ENTER  |
         _______, XXXXXXX, XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU,         KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX, _______,
