@@ -1,0 +1,54 @@
+--- a/keyboards/triliu/jesk56/matrix.c
++++ b/keyboards/triliu/jesk56/matrix.c
+@@ -41,11 +41,5 @@
+ 
+ 
+-    // initialize matrix state: all keys off
+-    memset(matrix, 0, sizeof(matrix));
+-    memset(raw_matrix, 0, sizeof(raw_matrix));
+-
+-    debounce_init(MATRIX_ROWS);
+-
+-    matrix_init_kb();
++    // QMK initializes matrix state, debounce, and hooks in the lite wrapper.
+ }
+ 
+@@ -122,5 +116,5 @@
+             ){
+                 // Select the col pin to read (active low)
+-                uint8_t pin_state = readPin(matrix_col_pins[col_index]);
++                uint8_t pin_state = gpio_read_pin(matrix_col_pins[col_index]);
+ 
+                 // Populate the matrix row with the state of the col pin
+@@ -178,5 +172,5 @@
+     for (uint8_t col_index = 0; col_index < MATRIX_COLS; col_index++, row_shifter <<= 1) {
+ 
+-        uint8_t pin_state = readPin(col_pins[col_index]);
++        uint8_t pin_state = gpio_read_pin(col_pins[col_index]);
+         // uint8_t pin_state = readMatrixPin(col_pins[col_index]);
+ 
+@@ -201,6 +195,6 @@
+ static inline void setPinOutput_writeLow(pin_t pin) {
+     ATOMIC_BLOCK_FORCEON {
+-        setPinOutput(pin);
+-        writePinLow(pin);
++        gpio_set_pin_output(pin);
++        gpio_write_pin_low(pin);
+     }
+ }
+@@ -208,6 +202,6 @@
+ static inline void setPinOutput_writeHigh(pin_t pin) {
+     ATOMIC_BLOCK_FORCEON {
+-        setPinOutput(pin);
+-        writePinHigh(pin);
++        gpio_set_pin_output(pin);
++        gpio_write_pin_high(pin);
+     }
+ }
+@@ -215,5 +209,5 @@
+ static inline void setPinInputHigh_atomic(pin_t pin) {
+     ATOMIC_BLOCK_FORCEON {
+-        setPinInputHigh(pin);
++        gpio_set_pin_input_high(pin);
+     }
+ }

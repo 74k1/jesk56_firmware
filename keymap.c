@@ -102,11 +102,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // |       |        |        |        |        |        |       |        |        |        |        |        |        |
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     // |-------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-    // | BOOT  |        |        |        |        |        |       | HUE +  | SAT +  | BRI +  | EFF +  | TG RGB |        |
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, RGB_TOG, XXXXXXX,
+    // | BOOT  |        |        |        |        |        |       |        |        |        |        |        |        |
+        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     // |-------+--------+--------+--------+--------+--------|       |--------+--------+--------+--------+--------+--------|
-    // |       |        |        |        |        |        '-_____-' HUE -  | SAT -  | BRI -  | EFF -  | MO RGB |
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, RGB_MOD, XXXXXXX,
+    // |       |        |        |        |        |        '-_____-'        |        |        |        |        |
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     // '-------+----+---+----+---+----+---+----+---+------------+------------+----+---+----+---+----+---+----+---+--------'
                   //|        |        | LAYER6 |                |                 | LAYER6 |        |        |
                       XXXXXXX, XXXXXXX, _______,         XXXXXXX,          XXXXXXX, _______, XXXXXXX, XXXXXXX
